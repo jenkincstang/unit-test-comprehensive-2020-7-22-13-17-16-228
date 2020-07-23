@@ -78,4 +78,27 @@ public class GuessNumberTest {
         //then
         Assertions.assertEquals("0A0B",result);
     }
+
+    @Test
+    public void should_return_0A2B_when_guess_given_answer_1234_and_input_3456(){
+        //given
+        GuessNumber guessNumber = new GuessNumber();
+        LinkedList<Integer> answer = new LinkedList<>();
+        answer.add(1);
+        answer.add(2);
+        answer.add(3);
+        answer.add(4);
+
+        LinkedList<Integer> inputNumber = new LinkedList<>();
+        inputNumber.add(3);
+        inputNumber.add(4);
+        inputNumber.add(5);
+        inputNumber.add(6);
+
+        //when
+        String result = guessNumber.guess(answer,inputNumber);
+
+        //then
+        Assertions.assertEquals("0A2B",result);
+    }
 }
