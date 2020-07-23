@@ -14,11 +14,14 @@ public class GuessNumber {
             return "4A0B";
         }
         if(isHaveTwoCorrectNumberWithCorrectPosition(answer,inputNumber) &&
-                isHaveZeroCorrectNumberWithUnCorrectPosition(answer,inputNumber)){
+                isHaveZeroCorrectNumberWithUncorrectPosition(answer,inputNumber)){
             return "2A0B";
         }
         if(isHaveNoCorrectNumber(answer,inputNumber)){
             return "0A0B";
+        }
+        if(isHaveTwoCorrectNumber(answer,inputNumber) && isHaveNoneCorrectNumberWithCorrectPosition(answer,inputNumber)){
+            return "0A2B";
         }
         return null;
     }
@@ -52,7 +55,8 @@ public class GuessNumber {
         return false;
     }
 
-    public boolean isHaveZeroCorrectNumberWithUnCorrectPosition(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+    public boolean isHaveZeroCorrectNumberWithUncorrectPosition(LinkedList<Integer> answer,
+                                                                LinkedList<Integer> inputNumber){
         HashSet<Integer> unionOfNumber = new HashSet();
         unionOfNumber.addAll(answer);
         unionOfNumber.addAll(inputNumber);
@@ -61,4 +65,33 @@ public class GuessNumber {
         }
         return false;
     }
+
+    public boolean isHaveTwoCorrectNumber(LinkedList<Integer> answer,
+                                          LinkedList<Integer> inputNumber){
+        HashSet<Integer> unionOfNumber = new HashSet();
+        unionOfNumber.addAll(answer);
+        unionOfNumber.addAll(inputNumber);
+        if(unionOfNumber.size() == 6){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isHaveNoneCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
+                                                              LinkedList<Integer> inputNumber){
+        int numberOfCorrectNumberWithCorrectPosition = 0;
+
+        for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
+            if(answer.get(indexOfList).equals(inputNumber.get(indexOfList))){
+                numberOfCorrectNumberWithCorrectPosition ++;
+            }
+        }
+
+        if(numberOfCorrectNumberWithCorrectPosition == 0){
+            return true;
+        }
+
+        return false;
+    }
+
 }
