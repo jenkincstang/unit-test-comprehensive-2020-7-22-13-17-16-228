@@ -9,13 +9,13 @@ import java.util.LinkedList;
  */
 public class GuessNumber {
 
-    public String guess(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+    public String guess(LinkedList<Integer> answer, LinkedList<Integer> inputNumber) {
 
-        int countOfCorrectNumberWithCorrectPosition = getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber);
-        int countOfCorrectNumber = getCountOfCorrectNumber(answer,inputNumber);
+        int countOfCorrectNumberWithCorrectPosition = getCountOfCorrectNumberWithCorrectPosition(answer, inputNumber);
+        int countOfCorrectNumber = getCountOfCorrectNumber(answer, inputNumber);
         int sizeOfInputNumber = inputNumber.size();
 
-        String result = getGuessResult(countOfCorrectNumberWithCorrectPosition,countOfCorrectNumber);
+        String result = getGuessResult(countOfCorrectNumberWithCorrectPosition, countOfCorrectNumber);
         return result;
     }
 
@@ -25,12 +25,12 @@ public class GuessNumber {
     }
 
     public int getCountOfCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
-                                                             LinkedList<Integer> inputNumber){
+                                                          LinkedList<Integer> inputNumber) {
         int countOfCorrectNumberWithCorrectPosition = 0;
 
-        for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
-            if(answer.get(indexOfList).equals(inputNumber.get(indexOfList))){
-                countOfCorrectNumberWithCorrectPosition ++;
+        for (int indexOfList = 0; indexOfList < answer.size(); indexOfList++) {
+            if (answer.get(indexOfList).equals(inputNumber.get(indexOfList))) {
+                countOfCorrectNumberWithCorrectPosition++;
             }
         }
 
@@ -38,12 +38,12 @@ public class GuessNumber {
     }
 
     public int getCountOfCorrectNumber(LinkedList<Integer> answer,
-                                          LinkedList<Integer> inputNumber){
+                                       LinkedList<Integer> inputNumber) {
         int sizeOfTwoList = 8;
         HashSet<Integer> unionOfNumber = new HashSet();
         unionOfNumber.addAll(answer);
         unionOfNumber.addAll(inputNumber);
         int countOfCorrectNumber = sizeOfTwoList - unionOfNumber.size();
-         return countOfCorrectNumber;
+        return countOfCorrectNumber;
     }
 }
