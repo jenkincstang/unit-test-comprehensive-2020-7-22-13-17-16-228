@@ -8,6 +8,10 @@ import java.util.LinkedList;
  */
 public class GuessNumber {
     public String guess(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+        if(answer.equals(inputNumber)){
+            return "4A0B";
+        }
+
         return null;
     }
 }
