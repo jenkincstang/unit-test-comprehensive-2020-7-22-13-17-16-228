@@ -12,13 +12,15 @@ public class GuessNumber {
         if(answer.equals(inputNumber)){
             return "4A0B";
         }
-        if(isHaveTwoCorrectNumberWithCorrectPosition(answer,inputNumber)){
+        if(isHaveTwoCorrectNumberWithCorrectPosition(answer,inputNumber) &&
+                isHaveZeroCorrectNumberWithUnCorrectPosition(answer,inputNumber)){
             return "2A0B";
         }
         return null;
     }
 
-    public boolean isHaveTwoCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+    public boolean isHaveTwoCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
+                                                             LinkedList<Integer> inputNumber){
         int numberOfCorrectNumberWithCorrectPosition = 0;
 
         for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
