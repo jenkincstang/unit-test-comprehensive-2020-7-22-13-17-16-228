@@ -28,6 +28,10 @@ public class GuessNumber {
                 getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 2){
             return "2A2B";
         }
+        if(getCountOfCorrectNumber(answer,inputNumber) == 4 &&
+                getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 0){
+            return "0A4B";
+        }
         return null;
     }
 
