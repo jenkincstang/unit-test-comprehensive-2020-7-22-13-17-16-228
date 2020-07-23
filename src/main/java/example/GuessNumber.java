@@ -13,85 +13,40 @@ public class GuessNumber {
         if(answer.equals(inputNumber)){
             return "4A0B";
         }
-        if(isHaveTwoCorrectNumberWithCorrectPosition(answer,inputNumber) &&
-                isHaveZeroCorrectNumberWithUncorrectPosition(answer,inputNumber)){
+        if(getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 2 &&
+                getCountOfCorrectNumber(answer,inputNumber) == 2){
             return "2A0B";
         }
-        if(isHaveNoCorrectNumber(answer,inputNumber)){
+        if(getCountOfCorrectNumber(answer,inputNumber) == 0){
             return "0A0B";
         }
-        if(isHaveTwoCorrectNumber(answer,inputNumber) && isHaveNoneCorrectNumberWithCorrectPosition(answer,inputNumber)){
+        if(getCountOfCorrectNumber(answer,inputNumber) == 2 &&
+                getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 0){
             return "0A2B";
         }
         return null;
     }
 
-    public boolean isHaveNoCorrectNumber(LinkedList<Integer> answer,
-                                         LinkedList<Integer> inputNumber){
-        HashSet<Integer> unionOfNumber = new HashSet<>();
-        unionOfNumber.addAll(answer);
-        unionOfNumber.addAll(inputNumber);
-        if(unionOfNumber.size() == 8){
-            return true;
-        }
-        return false;
-
-    }
-
-    public boolean isHaveTwoCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
+    public int getCountOfCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
                                                              LinkedList<Integer> inputNumber){
-        int numberOfCorrectNumberWithCorrectPosition = 0;
+        int countOfCorrectNumberWithCorrectPosition = 0;
 
         for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
             if(answer.get(indexOfList).equals(inputNumber.get(indexOfList))){
-                numberOfCorrectNumberWithCorrectPosition ++;
+                countOfCorrectNumberWithCorrectPosition ++;
             }
         }
 
-        if(numberOfCorrectNumberWithCorrectPosition == 2){
-            return true;
-        }
-
-        return false;
+        return countOfCorrectNumberWithCorrectPosition;
     }
 
-    public boolean isHaveZeroCorrectNumberWithUncorrectPosition(LinkedList<Integer> answer,
-                                                                LinkedList<Integer> inputNumber){
-        HashSet<Integer> unionOfNumber = new HashSet();
-        unionOfNumber.addAll(answer);
-        unionOfNumber.addAll(inputNumber);
-        if(unionOfNumber.size() == 6){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isHaveTwoCorrectNumber(LinkedList<Integer> answer,
+    public int getCountOfCorrectNumber(LinkedList<Integer> answer,
                                           LinkedList<Integer> inputNumber){
+        int sizeOfTwoList = 8;
         HashSet<Integer> unionOfNumber = new HashSet();
         unionOfNumber.addAll(answer);
         unionOfNumber.addAll(inputNumber);
-        if(unionOfNumber.size() == 6){
-            return true;
-        }
-        return false;
+        int countOfCorrectNumber = sizeOfTwoList - unionOfNumber.size();
+         return countOfCorrectNumber;
     }
-
-    public boolean isHaveNoneCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
-                                                              LinkedList<Integer> inputNumber){
-        int numberOfCorrectNumberWithCorrectPosition = 0;
-
-        for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
-            if(answer.get(indexOfList).equals(inputNumber.get(indexOfList))){
-                numberOfCorrectNumberWithCorrectPosition ++;
-            }
-        }
-
-        if(numberOfCorrectNumberWithCorrectPosition == 0){
-            return true;
-        }
-
-        return false;
-    }
-
 }
