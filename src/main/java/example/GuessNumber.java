@@ -10,26 +10,30 @@ import java.util.LinkedList;
 public class GuessNumber {
 
     public String guess(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
-        if(answer.equals(inputNumber)){
+
+        int countOfCorrectNumberWithCorrectPosition = getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber);
+        int countOfCorrectNumber = getCountOfCorrectNumber(answer,inputNumber);
+
+        if(countOfCorrectNumberWithCorrectPosition == 4){
             return "4A0B";
         }
-        if(getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 2 &&
-                getCountOfCorrectNumber(answer,inputNumber) == 2){
+        if(countOfCorrectNumberWithCorrectPosition == 2 &&
+                countOfCorrectNumber == 2){
             return "2A0B";
         }
-        if(getCountOfCorrectNumber(answer,inputNumber) == 0){
+        if(countOfCorrectNumber == 0){
             return "0A0B";
         }
-        if(getCountOfCorrectNumber(answer,inputNumber) == 2 &&
-                getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 0){
+        if(countOfCorrectNumber == 2 &&
+                countOfCorrectNumberWithCorrectPosition == 0){
             return "0A2B";
         }
-        if(getCountOfCorrectNumber(answer,inputNumber) == 4 &&
-                getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 2){
+        if(countOfCorrectNumber == 4 &&
+                countOfCorrectNumberWithCorrectPosition == 2){
             return "2A2B";
         }
-        if(getCountOfCorrectNumber(answer,inputNumber) == 4 &&
-                getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber) == 0){
+        if(countOfCorrectNumber == 4 &&
+                countOfCorrectNumberWithCorrectPosition == 0){
             return "0A4B";
         }
         return null;
