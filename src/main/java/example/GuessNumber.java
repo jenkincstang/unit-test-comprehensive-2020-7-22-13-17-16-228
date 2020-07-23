@@ -11,7 +11,25 @@ public class GuessNumber {
         if(answer.equals(inputNumber)){
             return "4A0B";
         }
-
+        if(isHaveTwoCorrectNumberWithCorrectPosition(answer,inputNumber)){
+            return "2A0B";
+        }
         return null;
+    }
+
+    public boolean isHaveTwoCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+        int numberOfCorrectNumberWithCorrectPosition = 0;
+
+        for(int indexOfList = 0;indexOfList < answer.size(); indexOfList ++){
+            if(answer.get(indexOfList).equals(inputNumber.get(indexOfList))){
+                numberOfCorrectNumberWithCorrectPosition ++;
+            }
+        }
+
+        if(numberOfCorrectNumberWithCorrectPosition == 2){
+            return true;
+        }
+
+        return false;
     }
 }
