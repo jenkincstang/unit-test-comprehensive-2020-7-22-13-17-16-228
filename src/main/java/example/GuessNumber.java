@@ -13,30 +13,15 @@ public class GuessNumber {
 
         int countOfCorrectNumberWithCorrectPosition = getCountOfCorrectNumberWithCorrectPosition(answer,inputNumber);
         int countOfCorrectNumber = getCountOfCorrectNumber(answer,inputNumber);
+        int sizeOfInputNumber = inputNumber.size();
 
-        if(countOfCorrectNumberWithCorrectPosition == 4){
-            return "4A0B";
-        }
-        if(countOfCorrectNumberWithCorrectPosition == 2 &&
-                countOfCorrectNumber == 2){
-            return "2A0B";
-        }
-        if(countOfCorrectNumber == 0){
-            return "0A0B";
-        }
-        if(countOfCorrectNumber == 2 &&
-                countOfCorrectNumberWithCorrectPosition == 0){
-            return "0A2B";
-        }
-        if(countOfCorrectNumber == 4 &&
-                countOfCorrectNumberWithCorrectPosition == 2){
-            return "2A2B";
-        }
-        if(countOfCorrectNumber == 4 &&
-                countOfCorrectNumberWithCorrectPosition == 0){
-            return "0A4B";
-        }
-        return null;
+        String result = getGuessResult(countOfCorrectNumberWithCorrectPosition,countOfCorrectNumber);
+        return result;
+    }
+
+    private String getGuessResult(int countOfCorrectNumberWithCorrectPosition, int countOfCorrectNumber) {
+        String result = countOfCorrectNumberWithCorrectPosition + "A" + (countOfCorrectNumber - countOfCorrectNumberWithCorrectPosition) + "B";
+        return result;
     }
 
     public int getCountOfCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
