@@ -1,5 +1,6 @@
 package example;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 /**
@@ -30,6 +31,16 @@ public class GuessNumber {
             return true;
         }
 
+        return false;
+    }
+
+    public boolean isHaveZeroCorrectNumberWithUnCorrectPosition(LinkedList<Integer> answer,LinkedList<Integer> inputNumber){
+        HashSet<Integer> unionOfNumber = new HashSet();
+        unionOfNumber.addAll(answer);
+        unionOfNumber.addAll(inputNumber);
+        if(unionOfNumber.size() == 6){
+            return true;
+        }
         return false;
     }
 }
