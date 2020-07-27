@@ -1,8 +1,5 @@
 package example;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -12,7 +9,6 @@ public class CheckNumber {
         if(inputNumbers.size() == 4)return true;
         if(isNumberInRange(inputNumbers))return true;
         if(isNotContainsRepeatElement(inputNumbers))return true;
-
         return false;
     }
 
