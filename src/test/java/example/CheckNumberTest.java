@@ -44,7 +44,7 @@ public class CheckNumberTest {
 
 
     @Test
-    public void should_return_true_when_judge_number_not_repeat_given_5_number_without_repeat() {
+    public void should_return_true_when_judge_number_not_repeat_given_number_without_repeat() {
         //given
         CheckNumber checkNumber = new CheckNumber();
         //when
