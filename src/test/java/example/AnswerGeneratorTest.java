@@ -7,7 +7,7 @@ import java.util.*;
 
 public class AnswerGeneratorTest {
     @Test
-    public void should_return_4_when_genarate_answer(){
+    public void should_return_4_when_judge_size(){
         //given
         AnswerGenerator answerGenarate = new AnswerGenerator();
         //when
