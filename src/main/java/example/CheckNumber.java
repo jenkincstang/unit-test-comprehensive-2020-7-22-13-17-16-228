@@ -16,12 +16,12 @@ public class CheckNumber {
         return list.stream().filter(i -> i>9 || i<0).count() == 0;
     }
 
-    public boolean isNotContainsRepeatElement(LinkedList<Integer> list){
-        HashSet<Integer> set = new HashSet();
-        for (Integer item:list){
-            set.add(item);
+    public boolean isNotContainsRepeatElement(LinkedList<Integer> elements){
+        HashSet<Integer> notRepeatElements = new HashSet();
+        for (Integer item:elements){
+            notRepeatElements.add(item);
         }
-        if(set.size() == list.size()) return true;
+        if(notRepeatElements.size() == elements.size()) return true;
         return false;
     }
 
