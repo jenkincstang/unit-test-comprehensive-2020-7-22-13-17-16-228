@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class CheckNumberTest {
     @Test
-    public void should_return_true_when_count_quantity_of_number_given_4_number() {
+    public void should_return_false_when_count_quantity_of_number_given_5_number() {
         //given
         CheckNumber checkNumber = new CheckNumber();
         //when
@@ -16,10 +16,11 @@ public class CheckNumberTest {
         inputNumbers.add(1);
         inputNumbers.add(1);
         inputNumbers.add(1);
+        inputNumbers.add(1);
 
         boolean result = checkNumber.isLegalNumber(inputNumbers);
         //then
-        Assertions.assertEquals(true,result);
+        Assertions.assertEquals(false,result);
     }
 
     @Test
