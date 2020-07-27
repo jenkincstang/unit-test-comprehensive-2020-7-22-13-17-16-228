@@ -50,6 +50,6 @@ public class AnswerGeneratorTest {
     }
 
     public boolean isNumberInRange(LinkedList<Integer> list){
-        return list.stream().filter(i -> i>9 || i<0).count() < 0;
+        return list.stream().filter(i -> i>9 || i<0).count() == 0;
     }
 }
