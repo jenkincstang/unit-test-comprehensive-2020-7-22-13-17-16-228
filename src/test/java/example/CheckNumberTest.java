@@ -13,13 +13,8 @@ public class CheckNumberTest {
     public void should_return_4_when_count_quantity_of_number() throws IOException {
         //given
         CheckNumber checkNumber = new CheckNumber();
-        LinkedList<Integer> inputNumbers = new LinkedList<>();
-        inputNumbers.add(1);
-        inputNumbers.add(1);
-        inputNumbers.add(1);
-        inputNumbers.add(1);
         //when
-        int result = checkNumber.countNumber(inputNumbers);
+        int result = checkNumber.countNumber();
         //then
         Assertions.assertEquals(4,result);
     }
