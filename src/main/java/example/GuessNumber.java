@@ -39,11 +39,12 @@ public class GuessNumber {
 
     public int getCountOfCorrectNumber(LinkedList<Integer> answer,
                                        LinkedList<Integer> inputNumber) {
-        int sizeOfTwoList = 8;
         HashSet<Integer> unionOfNumber = new HashSet();
         unionOfNumber.addAll(answer);
         unionOfNumber.addAll(inputNumber);
-        int countOfCorrectNumber = sizeOfTwoList - unionOfNumber.size();
+
+        int totalSizeOfTwoList = 8;
+        int countOfCorrectNumber = totalSizeOfTwoList - unionOfNumber.size();
         return countOfCorrectNumber;
     }
 }

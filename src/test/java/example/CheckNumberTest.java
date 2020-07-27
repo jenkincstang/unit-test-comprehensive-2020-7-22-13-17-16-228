@@ -36,7 +36,7 @@ public class CheckNumberTest {
 
         boolean result = checkNumber.isLegalNumber(inputNumbers);
         //then
-        Assertions.assertEquals(flase,result);
+        Assertions.assertEquals(false,result);
     }
 
 
