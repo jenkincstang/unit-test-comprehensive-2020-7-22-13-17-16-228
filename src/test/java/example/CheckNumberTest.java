@@ -10,13 +10,19 @@ import java.util.LinkedList;
 
 public class CheckNumberTest {
     @Test
-    public void should_return_4_when_count_quantity_of_number() throws IOException {
+    public void should_return_true_when_count_quantity_of_number_given_4_number() throws IOException {
         //given
         CheckNumber checkNumber = new CheckNumber();
         //when
-        int result = checkNumber.countNumber();
+        LinkedList<Integer> inputNumbers = new LinkedList<>();
+        inputNumbers.add(1);
+        inputNumbers.add(1);
+        inputNumbers.add(1);
+        inputNumbers.add(1);
+
+        boolean result = checkNumber.isLegalNumber(inputNumbers);
         //then
-        Assertions.assertEquals(4,result);
+        Assertions.assertEquals(true,result);
     }
 
 

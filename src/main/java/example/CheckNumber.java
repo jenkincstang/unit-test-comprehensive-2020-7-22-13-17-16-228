@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class CheckNumber {
 
-    public int countNumber() {
-        return 4;
+    public boolean isLegalNumber(LinkedList<Integer> inputNumbers){
+        return false;
     }
 }
