@@ -19,7 +19,7 @@ public class AnswerGeneratorTest {
 
 
     @Test
-    public void should_return_true_when_genarate_answer(){
+    public void should_return_true_when_judge_number_not_repeat(){
         //given
         AnswerGenerator answerGenarate = new AnswerGenerator();
         //when
