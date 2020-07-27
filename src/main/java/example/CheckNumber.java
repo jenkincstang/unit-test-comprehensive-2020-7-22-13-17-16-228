@@ -6,7 +6,8 @@ import java.util.LinkedList;
 public class CheckNumber {
 
     public boolean isLegalNumber(LinkedList<Integer> inputNumbers){
-        if(inputNumbers.size() != 4)return false;
+        int legalQuantityOfInputNumber = 4;
+        if(inputNumbers.size() != legalQuantityOfInputNumber)return false;
         if(!isNumberInRange(inputNumbers))return false;
         if(!isNotContainsRepeatElement(inputNumbers))return false;
         return true;
