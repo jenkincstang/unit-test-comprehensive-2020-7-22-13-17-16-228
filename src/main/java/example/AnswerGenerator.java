@@ -5,6 +5,12 @@ import java.util.LinkedList;
 
 public class AnswerGenerator {
     public LinkedList<Integer> genarate() {
-        return new LinkedList<>();
+        LinkedList<Integer> answer = new LinkedList<>();
+        answer.add(1);
+        answer.add(1);
+        answer.add(1);
+        answer.add(1);
+
+        return answer;
     }
 }
