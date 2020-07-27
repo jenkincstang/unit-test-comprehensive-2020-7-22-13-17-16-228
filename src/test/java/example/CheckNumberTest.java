@@ -24,7 +24,7 @@ public class CheckNumberTest {
     }
 
     @Test
-    public void should_return_true_when_judge_number_range_given_number_between_0_and_9() {
+    public void should_return_false_when_judge_number_range_given_number_not_all_between_0_and_9() {
         //given
         CheckNumber checkNumber = new CheckNumber();
         //when
@@ -32,12 +32,11 @@ public class CheckNumberTest {
         inputNumbers.add(1);
         inputNumbers.add(2);
         inputNumbers.add(2);
-        inputNumbers.add(8);
-        inputNumbers.add(9);
+        inputNumbers.add(10);
 
         boolean result = checkNumber.isLegalNumber(inputNumbers);
         //then
-        Assertions.assertEquals(true,result);
+        Assertions.assertEquals(flase,result);
     }
 
 
