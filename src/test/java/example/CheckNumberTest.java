@@ -41,19 +41,18 @@ public class CheckNumberTest {
 
 
     @Test
-    public void should_return_true_when_judge_number_not_repeat_given_number_without_repeat() {
+    public void should_return_false_when_judge_number_not_repeat_given_number_with_repeat() {
         //given
         CheckNumber checkNumber = new CheckNumber();
         //when
         LinkedList<Integer> inputNumbers = new LinkedList<>();
         inputNumbers.add(1);
         inputNumbers.add(2);
-        inputNumbers.add(8);
+        inputNumbers.add(2);
         inputNumbers.add(9);
-        inputNumbers.add(10);
 
         boolean result = checkNumber.isLegalNumber(inputNumbers);
         //then
-        Assertions.assertEquals(true,result);
+        Assertions.assertEquals(false,result);
     }
 }
