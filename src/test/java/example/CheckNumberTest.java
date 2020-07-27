@@ -12,20 +12,17 @@ public class CheckNumberTest {
     @Test
     public void should_return_4_when_count_quantity_of_number() throws IOException {
         //given
-        CheckNumber checkNumber = Mockito.mock(CheckNumber.class);
+        CheckNumber checkNumber = new CheckNumber();
+        LinkedList<Integer> inputNumbers = new LinkedList<>();
+        inputNumbers.add(1);
+        inputNumbers.add(1);
+        inputNumbers.add(1);
+        inputNumbers.add(1);
         //when
-        Mockito.when(checkNumber.getInputNumbers())
-                .thenReturn("1 2 3 4 5");
-        String inputNumbers = checkNumber.getInputNumbers();
+        int result = checkNumber.countNumber(inputNumbers);
         //then
-        Assertions.assertEquals(4,getNumbersFromString(inputNumbers).size());
+        Assertions.assertEquals(4,result);
     }
 
-    public LinkedList<Integer> getNumbersFromString(String inputNumberString) {
-        LinkedList<Integer> numbers = new LinkedList<>();
-        for (String number : inputNumberString.split(" ")) {
-            numbers.add(Integer.valueOf(number));
-        }
-        return numbers;
-    }
+
 }

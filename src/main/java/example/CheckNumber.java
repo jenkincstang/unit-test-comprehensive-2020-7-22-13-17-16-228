@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 
 public class CheckNumber {
-    public String getInputNumbers() throws IOException {
-        return null;
+
+    public int countNumber(LinkedList<Integer> inputNumbers) {
+        return 0;
     }
 }
