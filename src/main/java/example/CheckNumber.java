@@ -18,10 +18,7 @@ public class CheckNumber {
     }
 
     public boolean isNotContainsRepeatElement(LinkedList<Integer> elements){
-        HashSet<Integer> notRepeatElements = new HashSet();
-        notRepeatElements.addAll(elements);
-        if(notRepeatElements.size() == elements.size()) return true;
-        return false;
+        return elements.stream().distinct().count() == elements.size();
     }
 
 }
