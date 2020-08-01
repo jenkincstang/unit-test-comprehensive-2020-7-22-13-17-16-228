@@ -2,6 +2,7 @@ package example;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.verification.Times;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,7 +56,13 @@ public class GameProcessTest {
         //when
         String result = "";
         String expect = "\nInput\t\t\tOutput\n" +
-                "1 2 3 5\t\t\t3A0B\n";
+                "0 1 2 3\t\t\t0A3B\n" +
+                "1 2 3 4\t\t\tYou win, All correct, Game over!\n" +
+                "2 3 4 5\t\t\t0A3B\n" +
+                "3 4 5 6\t\t\t0A2B\n" +
+                "4 5 6 7\t\t\t0A1B\n" +
+                "5 6 7 8\t\t\t0A0B\n" +
+                "Game Times Out,Game Over!\n";
         for(int i=0;i<6;i++){
             result = gameProcess.start(inputs.subList(i,i+4));
         }
