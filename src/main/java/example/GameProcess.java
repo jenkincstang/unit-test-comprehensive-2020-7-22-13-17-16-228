@@ -22,7 +22,7 @@ public class GameProcess {
         guessNumber = new GuessNumber();
         outputResult = "\nInput\t\t\tOutput\n";
         times = 0;
-        gameStatus = null;
+        gameStatus = GameStatus.RUNNING;
     }
     public String start(List<Integer> inputs) {
         times++;
