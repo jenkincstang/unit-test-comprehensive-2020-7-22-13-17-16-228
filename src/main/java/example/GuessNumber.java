@@ -38,9 +38,10 @@ public class GuessNumber {
         HashSet<Integer> unionOfNumber = new HashSet();
         unionOfNumber.addAll(answer);
         unionOfNumber.addAll(inputNumber);
+        answer.addAll(inputNumber);
 
         int totalSizeOfTwoList = 8;
-        int countOfCorrectNumber = totalSizeOfTwoList - unionOfNumber.size();
+        int countOfCorrectNumber = totalSizeOfTwoList - (int)(answer.stream().distinct().count());
         return countOfCorrectNumber;
     }
 }

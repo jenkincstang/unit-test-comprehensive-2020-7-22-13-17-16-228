@@ -16,7 +16,7 @@ public class CheckNumber {
     public boolean isNumberInRange(LinkedList<Integer> list){
         return list.stream().filter(i -> i>9 || i<0).count() == 0;
     }
-
+//TODO
     public boolean isNotContainsRepeatElement(LinkedList<Integer> elements){
         return elements.stream().distinct().count() == elements.size();
     }

@@ -3,10 +3,11 @@ package example;
 import java.util.*;
 
 public class AnswerGenerator {
+    //TODO
     public LinkedList<Integer> genarate() {
         return getRandomNumbers();
     }
-
+    //TODO
     private LinkedList<Integer> getRandomNumbers() {
         LinkedList<Integer> answer = new LinkedList<>();
         List<Integer> optionalNumbers = new ArrayList<Integer>(Arrays.asList(new Integer[]{0, 1, 2, 4, 5, 6, 7, 8, 9}));
