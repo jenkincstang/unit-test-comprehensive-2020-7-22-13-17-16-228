@@ -28,7 +28,7 @@ public class GameProcessTest {
         //when
         String result = gameProcess.start(inputs);
         String expect = "\nInput\t\t\tOutput\n" +
-                "1 2 3 4\t\t\tYou win, All correct\n";
+                "1 2 3 4\t\t\tYou win, All correct, Game over!\n";
         //then
         Assertions.assertEquals(expect,result);
     }
@@ -44,5 +44,23 @@ public class GameProcessTest {
         String expect = "\nInput\t\t\tOutput\n" +
                 "1 2 3 5\t\t\t3A0B\n";
         Assertions.assertEquals(expect,result);
+    }
+
+    @Test
+    void should_return_6_result_info_when_game_running_given_6_input(){
+        //given
+        GameProcess gameProcess = new GameProcess();
+        AnswerGenerator answerGenerator = new AnswerGenerator();
+        List<Integer> inputs = Arrays.asList(new Integer[]{0,1,2,3,4,5,6,7,8,9});
+        //when
+        String result = "";
+        String expect = "\nInput\t\t\tOutput\n" +
+                "1 2 3 5\t\t\t3A0B\n";
+        for(int i=0;i<6;i++){
+            result = gameProcess.start(inputs.subList(i,i+4));
+        }
+        //then
+        Assertions.assertEquals(expect,result);
+
     }
 }
