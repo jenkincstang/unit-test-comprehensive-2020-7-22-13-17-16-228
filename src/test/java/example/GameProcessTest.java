@@ -28,4 +28,17 @@ public class GameProcessTest {
         //then
         Assertions.assertEquals("You win, All correct",result);
     }
+
+    @Test
+    void should_return_result_info_when_game_running_given_a_input(){
+        //given
+        GameProcess gameProcess = new GameProcess();
+        List<Integer> inputs = Arrays.asList(new Integer[]{1,2,3,5});
+        //when
+        String result = gameProcess.start(inputs);
+        //then
+        String expect = "\nInput\t\t\tOutput\n" +
+                "1 2 3 5\t\t\t3A0B\n";
+        Assertions.assertEquals(expect,result);
+    }
 }
