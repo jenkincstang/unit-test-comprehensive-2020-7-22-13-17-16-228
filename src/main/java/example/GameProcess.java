@@ -8,7 +8,8 @@ public class GameProcess {
         checkNumber = new CheckNumber();
     }
     public String start(List<Integer> inputs) {
-        checkNumber.isLegalNumber(inputs);
+        if(!checkNumber.isLegalNumber(inputs))
+            return "Wrong Input,Input again";
         return null;
     }
 }
