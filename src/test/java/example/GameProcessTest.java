@@ -82,4 +82,17 @@ public class GameProcessTest {
         //then
         Assertions.assertEquals(GameStatus.RUNNING,gameProcess.getGameStatus());
     }
+
+    @Test
+    void should_return_game_win_status_info_when_game_running_given_2_input(){
+        //given
+        GameProcess gameProcess = new GameProcess();
+        List<Integer> inputs = Arrays.asList(new Integer[]{0,1,2,3,4,5,6,7,8,9});
+        //when
+        for(int i=0;i<2;i++){
+            gameProcess.start(inputs.subList(i,i+4));
+        }
+        //then
+        Assertions.assertEquals(GameStatus.GAME_WIN,gameProcess.getGameStatus());
+    }
 }
