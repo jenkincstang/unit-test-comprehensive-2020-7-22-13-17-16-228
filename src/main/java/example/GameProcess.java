@@ -14,6 +14,7 @@ public class GameProcess {
     private List<Integer> answer;
     private static String outputResult;
     private static Integer times;
+    private GameStatus gameStatus;
 
     public GameProcess(){
         checkNumber = new CheckNumber();
@@ -21,6 +22,7 @@ public class GameProcess {
         guessNumber = new GuessNumber();
         outputResult = "\nInput\t\t\tOutput\n";
         times = 0;
+        gameStatus = null;
     }
     public String start(List<Integer> inputs) {
         times++;
@@ -28,12 +30,16 @@ public class GameProcess {
         String output = "";
         if(!checkNumber.isLegalNumber(inputs))
             output = answerStitch(inputs,Error_Info);
-        else if(isGameWin(result))
-            output = answerStitch(inputs,Win_Info);
+        else if(isGameWin(result)) {
+            output = answerStitch(inputs, Win_Info);
+
+        }
         else
             output = answerStitch(inputs,result);
-        if (isTimesOut(times))
+        if (isTimesOut(times)) {
             output += Times_Out_Info;
+
+        }
         return output;
     }
 
@@ -51,5 +57,13 @@ public class GameProcess {
         outputResult += inputs.stream().map(e->e+" ").collect(Collectors.joining()).trim();
         outputResult += "\t\t\t"+result+"\n";
         return outputResult;
+    }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
     }
 }
