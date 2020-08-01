@@ -16,11 +16,13 @@ public class GameProcess {
         outputResult = "\nInput\t\t\tOutput\n";
     }
     public String start(List<Integer> inputs) {
-        if(!checkNumber.isLegalNumber(inputs))
-            return "Wrong Input,Input again";
+        String errorInfo = "Wrong Input,Input again";
+        String winInfo = "You win, All correct";
         String result = guessNumber.guess(answer,inputs);
+        if(!checkNumber.isLegalNumber(inputs))
+            return answerStitch(inputs,errorInfo);
         if(isGameWin(result))
-            return "You win, All correct";
+            return answerStitch(inputs,winInfo);
         return answerStitch(inputs,result);
     }
     public boolean isGameWin(String result){

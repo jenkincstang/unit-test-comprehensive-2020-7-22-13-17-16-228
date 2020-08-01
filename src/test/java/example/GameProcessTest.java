@@ -11,11 +11,13 @@ public class GameProcessTest {
     void should_return_wrong_info_when_game_running_given_a_wrong_input(){
         //given
         GameProcess gameProcess = new GameProcess();
-        List<Integer> inputs = Arrays.asList(new Integer[]{1,2,3,4});
+        List<Integer> inputs = Arrays.asList(new Integer[]{1,2,3,1});
         //when
         String result = gameProcess.start(inputs);
+        String expect = "\nInput\t\t\tOutput\n" +
+                "1 2 3 1\t\t\tWrong Input,Input again\n";
         //then
-        Assertions.assertEquals("Wrong Input,Input again",result);
+        Assertions.assertEquals(expect,result);
     }
 
     @Test
@@ -25,8 +27,10 @@ public class GameProcessTest {
         List<Integer> inputs = Arrays.asList(new Integer[]{1,2,3,4});
         //when
         String result = gameProcess.start(inputs);
+        String expect = "\nInput\t\t\tOutput\n" +
+                "1 2 3 4\t\t\tYou win, All correct\n";
         //then
-        Assertions.assertEquals("You win, All correct",result);
+        Assertions.assertEquals(expect,result);
     }
 
     @Test
