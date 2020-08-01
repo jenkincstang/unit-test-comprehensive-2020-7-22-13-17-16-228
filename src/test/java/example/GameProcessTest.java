@@ -95,4 +95,17 @@ public class GameProcessTest {
         //then
         Assertions.assertEquals(GameStatus.GAME_WIN,gameProcess.getGameStatus());
     }
+
+    @Test
+    void should_return_game_times_out_status_info_when_game_running_given_6_input(){
+        //given
+        GameProcess gameProcess = new GameProcess();
+        List<Integer> inputs = Arrays.asList(new Integer[]{9,8,7,6,5,4,3,2,1,0});
+        //when
+        for(int i=0;i<6;i++){
+            gameProcess.start(inputs.subList(i,i+4));
+        }
+        //then
+        Assertions.assertEquals(GameStatus.TIMES_OUT,gameProcess.getGameStatus());
+    }
 }
