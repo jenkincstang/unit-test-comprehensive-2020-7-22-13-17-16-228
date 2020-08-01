@@ -1,7 +1,9 @@
 package example;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Jenkin
@@ -9,7 +11,7 @@ import java.util.LinkedList;
  */
 public class GuessNumber {
 
-    public String guess(LinkedList<Integer> answer, LinkedList<Integer> inputNumber) {
+    public String guess(List<Integer> answer, List<Integer> inputNumber) {
         int countOfCorrectNumberWithCorrectPosition = getCountOfCorrectNumberWithCorrectPosition(answer, inputNumber);
         int countOfCorrectNumber = getCountOfCorrectNumber(answer, inputNumber);
         String result = getGuessResult(countOfCorrectNumberWithCorrectPosition, countOfCorrectNumber);
@@ -22,8 +24,8 @@ public class GuessNumber {
         return result;
     }
 
-    public int getCountOfCorrectNumberWithCorrectPosition(LinkedList<Integer> answer,
-                                                          LinkedList<Integer> inputNumber) {
+    public int getCountOfCorrectNumberWithCorrectPosition(List<Integer> answer,
+                                                          List<Integer> inputNumber) {
         int countOfCorrectNumberWithCorrectPosition = 0;
         for (int indexOfList = 0; indexOfList < answer.size(); indexOfList++) {
             if (answer.get(indexOfList).equals(inputNumber.get(indexOfList))) {
@@ -33,15 +35,13 @@ public class GuessNumber {
         return countOfCorrectNumberWithCorrectPosition;
     }
 
-    public int getCountOfCorrectNumber(LinkedList<Integer> answer,
-                                       LinkedList<Integer> inputNumber) {
-        HashSet<Integer> unionOfNumber = new HashSet();
-        unionOfNumber.addAll(answer);
-        unionOfNumber.addAll(inputNumber);
-        answer.addAll(inputNumber);
-
+    public int getCountOfCorrectNumber(List<Integer> answer,
+                                       List<Integer> inputNumber) {
+        List<Integer> totalNumbers = new ArrayList<>();
+        totalNumbers.addAll(answer);
+        totalNumbers.addAll(inputNumber);
         int totalSizeOfTwoList = 8;
-        int countOfCorrectNumber = totalSizeOfTwoList - (int)(answer.stream().distinct().count());
+        int countOfCorrectNumber = totalSizeOfTwoList - (int)(totalNumbers.stream().distinct().count());
         return countOfCorrectNumber;
     }
 }
