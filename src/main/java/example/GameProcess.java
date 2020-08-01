@@ -32,7 +32,7 @@ public class GameProcess {
             output = answerStitch(inputs,Error_Info);
         else if(isGameWin(result)) {
             output = answerStitch(inputs, Win_Info);
-
+            setGameStatus(GameStatus.GAME_WIN);
         }
         else
             output = answerStitch(inputs,result);
