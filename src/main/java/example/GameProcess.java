@@ -21,7 +21,7 @@ public class GameProcess {
         String result = guessNumber.guess(answer,inputs);
         if(isGameWin(result))
             return "You win, All correct";
-        return null;
+        return answerStitch(inputs,result);
     }
     public boolean isGameWin(String result){
         if ("4A0B".equals(result))
@@ -30,7 +30,7 @@ public class GameProcess {
     }
 
     public String answerStitch(List<Integer> inputs,String result){
-        outputResult += inputs.stream().map(e->e+" ").collect(Collectors.joining());
+        outputResult += inputs.stream().map(e->e+" ").collect(Collectors.joining()).trim();
         outputResult += "\t\t\t"+result+"\n";
         return outputResult;
     }
