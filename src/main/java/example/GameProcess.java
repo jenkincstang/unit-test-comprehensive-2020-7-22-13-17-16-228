@@ -38,7 +38,7 @@ public class GameProcess {
             output = answerStitch(inputs,result);
         if (isTimesOut(times)) {
             output += Times_Out_Info;
-
+            setGameStatus(GameStatus.TIMES_OUT);
         }
         return output;
     }
